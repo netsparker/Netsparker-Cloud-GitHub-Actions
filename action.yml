@@ -1,0 +1,33 @@
+name: 'Netsparker Enterprise Scan'
+description: 'Netsparker Enterprise Scan allows client actions to start scan tasks.'
+inputs:
+  website-id:
+    description: 'Unique id for your website on Netsparker Enterprise.'
+    required: true
+    default: ''
+  scan-type:
+    description: 'Requested scan type for scan.'
+    required: true
+    default: ''
+  profile-id:
+    description: 'Unique profile id for your requested website scan profile on Netsparker Enterprise.'
+    required: false
+    default: ''
+  user-id:
+    description: 'User Id on Netsparker Enterprise API Credentials. Use GitHub Secrets.'
+    required: true
+    default: ''
+  api-token:
+    description: 'API Token on Netsparker Enterprise API Credentials. Use GitHub Secrets.'
+    required: true
+    default: ''
+  base-url:
+    description: ''
+    required: false
+    default: 'https://www.netsparkercloud.com/'
+outputs:
+  scan-message:
+    description: 'Scan message for requested scan.'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
