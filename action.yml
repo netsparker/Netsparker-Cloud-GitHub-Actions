@@ -2,7 +2,7 @@ name: 'Netsparker Enterprise Scan'
 description: 'Netsparker Enterprise Scan allows client actions to start scan tasks.'
 branding:
   icon: 'radio'
-  color: 'darkblue'
+  color: 'blue'
 inputs:
   website-id:
     description: 'Unique id for your website on Netsparker Enterprise.'
