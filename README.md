@@ -50,7 +50,7 @@ jobs:
       # Starts actions with given inputs
       - name: Start Netsparker Enterprise Scan
         id: netsparker-enterprise-scan-step
-        uses: netsparker/Netsparker-Cloud-GitHub-Actions@v0.1.0
+        uses: netsparker/Netsparker-Cloud-GitHub-Actions@v0.1.1
         with:
           website-id: '******' # FILL HERE
           scan-type: 'FullWithSelectedProfile'
@@ -60,5 +60,5 @@ jobs:
           base-url: 'https://www.netsparkercloud.com'
       # Displays output for action
       - name: Display Scan Request Message
-        run: echo "${{ steps.netsparker-enterprise-scan-step.outputs.scan-message }}"
+        run: echo "${{ steps.netsparker-enterprise-scan-step.outputs.scan-message }}" >> $GITHUB_OUTPUT
 ```
