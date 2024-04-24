@@ -1,5 +1,4 @@
 const core = require('@actions/core');
-const github = require('@actions/github');
 const axios = require('axios');
 const qs = require('qs');
 
@@ -126,9 +125,9 @@ function scanRequest() {
       data: requestData
     };
 
-    core.info("Requesting scan...");
+    console.log("Requesting scan...");
     axios(config).then(function (response) {
-      core.info("Scan request succeeded.");
+      console.log("Scan request succeeded.");
       try {
         var result = JSON.parse(JSON.stringify(response.data));
       } catch (error) {
