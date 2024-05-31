@@ -28,6 +28,14 @@ This action requests a scan on [Netsparker Enterprise](https://www.netsparkerclo
 
 **Optional** Website URL for Netsparker Enterprise.
 
+### `wait-for-completion`:
+
+**Optional** Fail the build if one of the selected scan severity is detected.
+
+### `fail-on-level`:
+
+**Optional** Severity filter.
+
 ## Outputs
 
 ### `scan-message`:
@@ -58,6 +66,8 @@ jobs:
           user-id: ${{ secrets.NETSPARKER_USER_ID }}
           api-token: ${{ secrets.NETSPARKER_API_TOKEN }}
           base-url: 'https://www.netsparkercloud.com'
+          wait-for-completion: false
+          fail-on-level: 'DoNotFail'
       # Displays output for action
       - name: Display Scan Request Message
         run: echo "${{ steps.netsparker-enterprise-scan-step.outputs.scan-message }}" >> $GITHUB_OUTPUT

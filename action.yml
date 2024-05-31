@@ -28,6 +28,14 @@ inputs:
     description: ''
     required: false
     default: 'https://www.netsparkercloud.com/'
+  wait-for-completion:
+    description: 'Fail the build if one of the selected scan severity is detected.'
+    required: false
+    default: 'false'
+  fail-on-level:
+    description: 'Severity Filter.'
+    required: false
+    default: 'DoNotFail'
 outputs:
   scan-message:
     description: 'Scan message for requested scan.'
