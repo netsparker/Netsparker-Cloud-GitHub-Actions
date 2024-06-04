@@ -70,7 +70,7 @@ jobs:
       # Starts actions with given inputs
       - name: Start Netsparker Enterprise Scan
         id: netsparker-enterprise-scan-step
-        uses: netsparker/Netsparker-Cloud-GitHub-Actions@v0.2.0
+        uses: netsparker/Netsparker-Cloud-GitHub-Actions@v0.2.1
         with:
           website-id: '******' # FILL HERE
           scan-type: 'FullWithSelectedProfile'
