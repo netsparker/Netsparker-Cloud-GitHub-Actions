@@ -432,8 +432,8 @@ async function main() {
             isScanOngoing = false;
             break;
           case SEVERITY_LEVELS.BEST_PRACTICE:
-            if (criticalCount > 0 || highCount > 0 || mediumCount > 0 || lowCount > 0 || infoCount > 0 || bestPracticeCount > 0) {
-              failMessage = `Critical or high or medium or low or info or best practice vulnerabilities found: Critical: ${criticalCount}, High: ${highCount}, Medium: ${mediumCount}, Low: ${lowCount}, Info: ${infoCount}, Best Practice: ${bestPracticeCount}`;
+            if (criticalCount > 0 || highCount > 0 || mediumCount > 0 || lowCount > 0  || bestPracticeCount > 0) {
+              failMessage = `Critical or high or medium or low or info or best practice vulnerabilities found: Critical: ${criticalCount}, High: ${highCount}, Medium: ${mediumCount}, Low: ${lowCount}, Best Practice: ${bestPracticeCount}`;
             }
             isScanOngoing = false;
             break;
