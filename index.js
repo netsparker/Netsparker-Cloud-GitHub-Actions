@@ -106,6 +106,7 @@ function isVulnerabilityLevelValid(vulnerabilityLevel) {
     vulnerabilityLevel === SEVERITY_LEVELS.HIGH ||
     vulnerabilityLevel === SEVERITY_LEVELS.MEDIUM ||
     vulnerabilityLevel === SEVERITY_LEVELS.LOW ||
+    vulnerabilityLevel === SEVERITY_LEVELS.BEST_PRACTICE ||
     vulnerabilityLevel === SEVERITY_LEVELS.NONE
   );
 }
