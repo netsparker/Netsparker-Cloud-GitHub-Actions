@@ -34,7 +34,19 @@ This action requests a scan on [Netsparker Enterprise](https://www.netsparkerclo
 
 ### `fail-on-level`:
 
-**Optional** Severity filter.
+**Optional** Severity filter. Options : 
+
+DoNotFail : Do not fail the build
+
+Critical  : Critical
+
+Critical,High : High or above 
+
+Critical,High,Medium : Medium or above
+
+Critical,High,Medium,Low : Low or above
+
+Critical,High,Medium,Low,Best Practice : Best Practices or above
 
 ## Outputs
 
