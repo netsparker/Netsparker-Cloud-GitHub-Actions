@@ -382,7 +382,7 @@ async function main() {
     console.log("Getting scan info...");
     let scanInfo = null;
     try {
-      scanInfo = await getScanInfo(currentScanId, userIdInput, apiTokenInput);
+      scanInfo = await getScanInfo(currentScanId, userIdInput, apiTokenInput, baseUrl);
     } catch (error) {
       core.setFailed(`Error occurred during scan info retrieval: ${error}`);
       return;
