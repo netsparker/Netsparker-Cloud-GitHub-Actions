@@ -4,7 +4,6 @@ const qs = require('qs');
 const fs = require('fs');
 const {DefaultArtifactClient} = require('@actions/artifact');
 
-const baseUrl = 'https://www.netsparkercloud.com';
 const createScanRequestEndpoint = '/api/1.0/scans/CreateFromPluginScanRequest';
 const scanStatusPath = '/scans/status/';
 const scanStatusEndpoint = '/api/1.0/scans/status/';
@@ -179,10 +178,10 @@ function prepareRequestData(websiteIdInput, scanType, profileIdInput) {
   });
 }
 
-async function scanRequest(websiteIdInput, scanTypeInput, userIdInput, apiTokenInput, profileIdInput, baseUrlInput, failOnLevel, waitForCompletion) {
+async function scanRequest(websiteIdInput, scanTypeInput, userIdInput, apiTokenInput, profileIdInput, baseUrl, failOnLevel, waitForCompletion) {
   try {
-    const scanStatusBaseUrl = baseUrlInput + scanStatusPath;
-    const scanRequestEndpoint = baseUrlInput + createScanRequestEndpoint;
+    const scanStatusBaseUrl = baseUrl + scanStatusPath;
+    const scanRequestEndpoint = baseUrl + createScanRequestEndpoint;
 
     const scanType = getScanType(scanTypeInput);
 
@@ -238,7 +237,7 @@ async function scanRequest(websiteIdInput, scanTypeInput, userIdInput, apiTokenI
   }
 }
 
-async function statusCheck(scanId, userIdInput, apiTokenInput) {
+async function statusCheck(scanId, userIdInput, apiTokenInput, baseUrl) {
     try {
       let scanStatusBaseUrl = baseUrl + scanStatusEndpoint + scanId;
   
@@ -259,7 +258,7 @@ async function statusCheck(scanId, userIdInput, apiTokenInput) {
     }
 }
 
-async function getScanReport(scanId, userIdInput, apiTokenInput) {
+async function getScanReport(scanId, userIdInput, apiTokenInput, baseUrl) {
   try {
     let type = "Crawled"; // Crawled, ExecutiveSummary
     let format = "Xml"; // Html, Pdf, Xml, Csv, Json, Txt
@@ -309,7 +308,7 @@ function prepareScanInfoRequestData(scanId) {
 }
 
 
-async function getScanInfo(scanId, userIdInput, apiTokenInput) {
+async function getScanInfo(scanId, userIdInput, apiTokenInput, baseUrl) {
   try {
     let scanInfoBaseUrl = baseUrl + scanInfoEndpoint;
     console.log(`Getting scan info from: ${scanInfoBaseUrl}`);
@@ -348,15 +347,16 @@ async function main() {
   const apiTokenInput = core.getInput('api-token');
   const failOnLevel = core.getInput('fail-on-level');
   const waitForCompletion = core.getInput('wait-for-completion');
+  const baseUrl = core.getInput('base-url');
 
-  let baseUrlInput = core.getInput('base-url');
-  if (isEmpty(baseUrlInput)) {
-    baseUrlInput = baseUrl;
+  if (isEmpty(baseUrl)) {
+    core.setFailed(`Base URL is missing. Please check your generated script.`);
+    return;
   }
 
   // Scan request
   try {
-    const scanResult = await scanRequest(websiteIdInput, scanTypeInput, userIdInput, apiTokenInput, profileIdInput, baseUrlInput, failOnLevel, waitForCompletion);
+    const scanResult = await scanRequest(websiteIdInput, scanTypeInput, userIdInput, apiTokenInput, profileIdInput, baseUrl, failOnLevel, waitForCompletion);
     if (scanResult < 0) {
       core.setFailed(`Scan request failed with error code: ${scanResult}`);
       return;
