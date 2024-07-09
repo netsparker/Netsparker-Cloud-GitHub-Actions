@@ -26,7 +26,7 @@ This action requests a scan on [Netsparker Enterprise](https://www.netsparkerclo
 
 ### `base-url`:
 
-**Optional** Website URL for Netsparker Enterprise.
+**Required** Website URL for Netsparker Enterprise.
 
 ### `wait-for-completion`:
 
