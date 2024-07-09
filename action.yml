@@ -25,8 +25,8 @@ inputs:
     required: true
     default: ''
   base-url:
-    description: ''
-    required: false
+    description: 'The root URL for the Netsparker Cloud API.'
+    required: true
     default: 'https://www.netsparkercloud.com/'
   wait-for-completion:
     description: 'Fail the build if one of the selected scan severity is detected.'
