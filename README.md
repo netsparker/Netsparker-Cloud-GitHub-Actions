@@ -65,12 +65,12 @@ on:
 
 jobs:
   netspaker_scan_job:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       # Starts actions with given inputs
       - name: Start Netsparker Enterprise Scan
         id: netsparker-enterprise-scan-step
-        uses: netsparker/Netsparker-Cloud-GitHub-Actions@v1.0.0
+        uses: netsparker/Netsparker-Cloud-GitHub-Actions@v1.0.1
         with:
           website-id: '******' # FILL HERE
           scan-type: 'FullWithSelectedProfile'
