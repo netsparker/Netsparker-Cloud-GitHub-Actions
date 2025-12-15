@@ -64,7 +64,7 @@ on:
     branches: [ main ]
 
 jobs:
-  netspaker_scan_job:
+  netsparker_scan_job:
     runs-on: ubuntu-latest
     steps:
       # Starts actions with given inputs
