@@ -231,7 +231,7 @@ function verifyInputs(websiteIdInput, scanTypeInput, userIdInput, apiTokenInput,
   }
 
   if (!isScanTypeValid(scanType)) {
-    core.setFailed(`Input scan-type is not valid: ${scanTypeInput}`);
+    core.setFailed(`Input scan-type is not valid: ${scanTypeInput} (valid values: ${Object.values(scanTypes).join(', ')})`);
     return -1;
   }
 
@@ -241,7 +241,7 @@ function verifyInputs(websiteIdInput, scanTypeInput, userIdInput, apiTokenInput,
   }
 
   if (!isVulnerabilityLevelValid(failOnLevel)) {
-    core.setFailed(`Input fail-on-level is not valid: ${failOnLevel}`);
+    core.setFailed(`Input fail-on-level is not valid: ${failOnLevel} (valid values: ${Object.values(SEVERITY_LEVELS).join(', ')})`);
     return -1;
   }
 
