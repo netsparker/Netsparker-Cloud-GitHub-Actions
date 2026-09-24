@@ -57,7 +57,7 @@ Scan message for requested scan.
 ## Example Scan Workflow
 
 ```yaml
-name: Netspaker Enterprise Scan Sample Workflow
+name: Netsparker Enterprise Scan Sample Workflow
 
 on:
   push:
